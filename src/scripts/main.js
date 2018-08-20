@@ -30,4 +30,14 @@ document.querySelector("#savePlaceEntry").addEventListener("click", () => {
        listPlaces.clearPlaces(),
        listAllCurrentPlaces();
     })
+    
+    //add event listener to the delete button
+    document.querySelector("#placesSection").addEventListener("click", evt => {
+        if (evt.target.classList.contains("place__delete")) {
+            const id = parseInt(evt.target.id.split("--")[1])
+            dataManager.deletePlace(id).then(()=>{
+                listPlaces.clearPlaces(),
+                listAllCurrentPlaces()})
+        }
+    });
 })})
