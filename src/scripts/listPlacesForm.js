@@ -7,7 +7,6 @@ const listPlacesComponent = (place) => {
             <article class="event__content--${place.id}">
                 ${place.placeLocation}
             </article>
-            <button class="place__edit" id="edit--${place.id}">Edit</button>
             <button class="place__delete" id="delete--${place.id}">Delete</button>
         </div>
     `

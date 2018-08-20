@@ -3,6 +3,11 @@ const listPlaces= require("listPlaces.js")
 const dataManager = require("dataManager.js")
 const placesListComponent = require("listPlacesForm.js")
 
+
+//populate places div with the current info in the database
+const listAllCurrentPlaces = ()=>{dataManager.getAllPlaces().then((places => listPlaces.populatePlaces(places)))};
+listAllCurrentPlaces();
+
 const placesGoHereDiv = document.querySelector("#placesGoHere");
 placesGoHereDiv.addEventListener("click",()=>{
 //creates a new div element to hold the event form
@@ -20,5 +25,9 @@ document.querySelector("#savePlaceEntry").addEventListener("click", () => {
     }
     //saving the object into the database
     dataManager.savePlace(newPlaceObject)
-})
-})
+    .then(()=>{
+        // Clear the places list and repopulate it with the new data
+       listPlaces.clearPlaces(),
+       listAllCurrentPlaces();
+    })
+})})
