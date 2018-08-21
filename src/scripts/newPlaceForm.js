@@ -9,6 +9,5 @@ renderNewPlaceForm =
                 <input required type="text" id="placeLocation" placeholder="example:Nashville">
             </fieldset>
             <button id="savePlaceEntry">Save Place Entry</button>
-            <button id="cancelPlaceButton">Cancel</button>
             `;
 module.exports = renderNewPlaceForm;
