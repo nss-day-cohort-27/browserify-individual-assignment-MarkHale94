@@ -1,7 +1,6 @@
-const newPlaceComponent = require("newPlaceForm.js");
+const newPlaceComponent = require("newPlaceForm.js")
 const listPlaces= require("listPlaces.js")
 const dataManager = require("dataManager.js")
-const placesListComponent = require("listPlacesForm.js")
 
 
 //populate places div with the current info in the database
@@ -9,6 +8,8 @@ const listAllCurrentPlaces = ()=>{dataManager.getAllPlaces().then((places => lis
 listAllCurrentPlaces();
 
 const placesGoHereDiv = document.querySelector("#placesGoHere");
+
+//adds event listener to the button that makes the places form appear
 placesGoHereDiv.addEventListener("click",()=>{
 //creates a new div element to hold the event form
 placesSectionDiv = document.querySelector("#placesSection");
@@ -30,7 +31,8 @@ document.querySelector("#savePlaceEntry").addEventListener("click", () => {
        listPlaces.clearPlaces(),
        listAllCurrentPlaces();
     })
-    
+    })
+})
     //add event listener to the delete button
     document.querySelector("#placesSection").addEventListener("click", evt => {
         if (evt.target.classList.contains("place__delete")) {
@@ -40,4 +42,3 @@ document.querySelector("#savePlaceEntry").addEventListener("click", () => {
                 listAllCurrentPlaces()})
         }
     });
-})})
